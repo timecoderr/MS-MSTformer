@@ -162,7 +162,7 @@ class ctrNet(nn.Module):
             stop_index = idx % stop_epochs
 
             if idx == 0:
-                start_time = time.time()  # 第一个epoch开始前记录当前时间
+                start_time = time.time()  
             for step, batch in enumerate(train_dataloader):
 
                 video, external, y = [x.to(args.device) for x in batch]
@@ -188,11 +188,10 @@ class ctrNet(nn.Module):
                 scheduler.step()
                 global_step += 1
 
-                # 第一个epoch结束后记录当前时间并输出耗时
             if idx == 0:
-                end_time = time.time()  # 第一个epoch结束后记录当前时间
+                end_time = time.time()  
                 logger.info(
-                        "Time used for the first epoch: {:.2f} seconds".format(end_time - start_time))  # 输出第一个epoch的耗时
+                        "Time used for the first epoch: {:.2f} seconds".format(end_time - start_time)) 
 
             if dev_dataloader is not None:
                 model.eval()
