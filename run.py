@@ -110,25 +110,6 @@ if __name__ == "__main__":
     print(b, external.shape)
 
 
-    if args.index == 'nycbike' or args.index == 'nycbike_shrink' or args.index == 'nycbike_shrink_1':
-        if args.time == '30':
-            x_index, external_index, train_index = 12816, 13152, 12
-        elif args.time == '60':
-            x_index, external_index, train_index = 6408, 6576, 6
-        elif args.time == '90':
-            x_index, external_index, train_index = 4272, 4384, 4
-    elif args.index == 'nyctaxi' or args.index == 'nyctaxi_shrink' or args.index == 'nyctaxi_shrink_1':
-        if args.time == '30':
-            x_index, external_index, train_index = 12804, 13140, 12
-        elif args.time == '60':
-            x_index, external_index, train_index = 6402, 6570, 6
-        elif args.time == '90':
-            x_index, external_index, train_index = 4268, 4380, 4
-
-    
-    X = X.reshape(x_index, 4, 12, 2, 12, 16)
-    Y = Y.reshape(x_index, 4, 2, 12, 16)
-    external = external.reshape(external_index, 4, 1, 56)
 
 
     min_index = 7 * args.interval
